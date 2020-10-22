@@ -107,13 +107,13 @@ def tie_breaker(pattern_elements):
     wildcard_quantity = None
 
     for pattern in pattern_elements:
-        current_wildcard_quantity = sum([i for i, v in enumerate(pattern) if v == WILDCARD])
+        current_wildcard_weight = sum([i for i, v in enumerate(pattern) if v == WILDCARD])
 
         if wildcard_quantity is None:
-            wildcard_quantity = current_wildcard_quantity
+            wildcard_quantity = current_wildcard_weight
             match_pattern = pattern
-        elif current_wildcard_quantity > wildcard_quantity:
-            wildcard_quantity = current_wildcard_quantity
+        elif current_wildcard_weight > wildcard_quantity:
+            wildcard_quantity = current_wildcard_weight
             match_pattern = pattern
 
     return match_pattern
