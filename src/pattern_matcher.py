@@ -104,16 +104,16 @@ def get_best_match_candidate(match_candidates):
 
 def tie_breaker(pattern_elements):
     match_pattern = None
-    wildcard_quantity = None
+    wildcard_weight = None
 
     for pattern in pattern_elements:
         current_wildcard_weight = sum([i for i, v in enumerate(pattern) if v == WILDCARD])
 
-        if wildcard_quantity is None:
-            wildcard_quantity = current_wildcard_weight
+        if wildcard_weight is None:
+            wildcard_weight = current_wildcard_weight
             match_pattern = pattern
-        elif current_wildcard_weight > wildcard_quantity:
-            wildcard_quantity = current_wildcard_weight
+        elif current_wildcard_weight > wildcard_weight:
+            wildcard_weight = current_wildcard_weight
             match_pattern = pattern
 
     return match_pattern
