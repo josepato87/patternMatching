@@ -1,5 +1,10 @@
 # Pattern Matching
 ## How to run the program
+
+Before running the program, run the following command to install the dependencies:
+`pip install -r requirements.txt`
+
+
 For running the program execute the patternMatching.sh file
 
 `sh patternMatching.sh`
@@ -26,7 +31,7 @@ With large ammounts of patterns and paths, the program will run slow.
 
 Using **regex** would be another solution, however the code readability will decrease, and large ammount of data will affect the program too.
 
-For mitigate this problem, an upgrade to the code would be to group the patterns by their length, and then by wildcard quantity. 
+To mitigate this problem, an upgrade to the code would be to group the patterns by their length, and then by wildcard quantity. 
 
 Using a "Trie" tree can increase the performance of the program with lots of paths and patterns data.
 
