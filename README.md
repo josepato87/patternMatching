@@ -28,5 +28,5 @@ Using **regex** would be another solution, however the code readability will dec
 
 For mitigate this problem, an upgrade to the code would be to group the patterns by their length, and then by wildcard quantity. 
 
-Using a "Trie" tree can increase the performance of the program with lots of paths and patterns.
+Using a "Trie" tree can increase the performance of the program with lots of paths and patterns data.
 
