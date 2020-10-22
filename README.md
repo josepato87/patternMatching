@@ -24,7 +24,7 @@ The complexity of this program is O(n^2), since it´s iterating for each path, t
 
 With large ammounts of patterns and paths, the program will run slow.
 
-Using **regex** would be another solution, however the code readability will decrease, and largo ammount of data will affect the program too.
+Using **regex** would be another solution, however the code readability will decrease, and large ammount of data will affect the program too.
 
 For mitigate this problem, an upgrade to the code would be to group the patterns by their length, and then by wildcard quantity. 
 
