@@ -79,7 +79,7 @@ def get_match_pattern(match_pattern, match_candidates):
 
 
 def get_best_match_candidate(match_candidates):
-    fewest_wildcards = []
+    less_wildcards = []
     wildcard_quantity = None
 
     for candidate in match_candidates:
@@ -87,33 +87,33 @@ def get_best_match_candidate(match_candidates):
 
         if wildcard_quantity is None:
             wildcard_quantity = candidate_wildcards
-            fewest_wildcards.append(candidate)
+            less_wildcards.append(candidate)
         else:
             if candidate_wildcards < wildcard_quantity:
                 wildcard_quantity = candidate_wildcards
-                fewest_wildcards[:] = []
-                fewest_wildcards.append(candidate)
+                less_wildcards[:] = []
+                less_wildcards.append(candidate)
             elif candidate_wildcards == wildcard_quantity:
-                fewest_wildcards.append(candidate)
+                less_wildcards.append(candidate)
 
-    if len(fewest_wildcards) == 1:
-        return fewest_wildcards[0]
+    if len(less_wildcards) == 1:
+        return less_wildcards[0]
     else:
-        return tie_breaker(fewest_wildcards)
+        return tie_breaker(less_wildcards)
 
 
 def tie_breaker(pattern_elements):
-    winner = None
-    highest_score = None
+    match_pattern = None
+    wildcard_quantity = None
 
     for pattern in pattern_elements:
-        index_sum = sum([i for i, v in enumerate(pattern) if v == WILDCARD])
+        current_wildcard_quantity = sum([i for i, v in enumerate(pattern) if v == WILDCARD])
 
-        if highest_score is None:
-            highest_score = index_sum
-            winner = pattern
-        elif index_sum > highest_score:
-            highest_score = index_sum
-            winner = pattern
+        if wildcard_quantity is None:
+            wildcard_quantity = current_wildcard_quantity
+            match_pattern = pattern
+        elif current_wildcard_quantity > wildcard_quantity:
+            wildcard_quantity = current_wildcard_quantity
+            match_pattern = pattern
 
-    return winner
+    return match_pattern
